@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Koleksi Video pembalajaran SMK Tarbiyatul Islam Kawunganten ditampilkan dalam galery yang dapat diputar secara langsung dengan teknologi HTML5">
+    <meta name="author" content="Samsul Ma'arif">
 
-    <title>Thumbnail Gallery - Start Bootstrap Template</title>
+    <title>Koleksi Video Pembelajaran SMKTIKA</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +28,27 @@
 
 <body>
 
+		<!-- Modal - Informasi -->
+		<div class="modal fade" id="informasi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel-informasi" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalLabel-informasi"><strong>FYI....</strong></h4>
+			  </div>
+			  <div class="modal-body">
+			  <p class="tengah">Sebagai informasi, jika video dalam daftar berikut tidak dapat diputar, pastikan bahwa browser yang Anda gunakan dapat memutar video dengan teknologi <strong>HTML5. Google Chrome, Mozilla Firefox</strong> versi terbaru umumnya dapat memutarnya.</p> 
+			  <p>Sangat tidak disarankan (atau bahkan <strong>DILARANG</strong>) menggunakan browser kuno semacam <strong>Internet Explorer</strong> atau <strong>Microsoft Edge</strong>.</p>
+			  <p>Anda diperbolehkan mengunduh video tersebut untuk diputar secara luring di laptop/komputer. Demikian, harap maklum.</p>
+			  <p class="tengah"><strong>- Admin -</strong></p>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -39,19 +60,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="#">@smktika</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
+                        <a href="http://smktika.id">Portal</a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <a href="http://ebook.smktika.id">eBook</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a onClick="$('#informasi').modal('show')">Info</a>
                     </li>
                 </ul>
             </div>
@@ -66,7 +87,7 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <h1 class="page-header">Thumbnail Gallery</h1>
+                <h1 class="page-header text-center">Video Pembelajaran</h1>
             </div>
 			<?php
 			$dir = "videos";
@@ -75,15 +96,15 @@
 				if ($dh = opendir($dir)) {
 					while (($file = readdir($dh)) !== false) {
 						
-						echo "<div class='col-lg-3 col-md-4 col-xs-6 thumb'>";
+						echo "<div class='col-lg-3 col-md-4 col-xs-6 thumb text-center'>";
 						//echo "<a class='thumbnail' href='#'>";
 						echo "<video class='thumbnail' width='200' height='200' src='$dir/$file' controls>";
 						echo "your browser does not support the video tag";
 						echo "</video>";
 						//echo "</a>";
-						echo "<br>";
+						echo "<br>Filename: $file";
 						
-						echo "filename: $file : filetype: " . filetype($dir . $file) . "\n" . "</br>";
+						echo "<a class='btn btn-primary' href='$dir/$file'>Download</a>";
 						echo "</div>";
 						
 					}
