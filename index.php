@@ -92,17 +92,16 @@
 			<?php
 			$dir = "videos";
 			// Open a known directory, and proceed to read its contents
+			// Kode ini terinspirasi dari : https://github.com/krishams/html5-video-auto/
 			if (is_dir($dir)) {
 				if ($dh = opendir($dir)) {
 					while (($file = readdir($dh)) !== false) {
 						
 						echo "<div class='col-lg-3 col-md-4 col-xs-6 thumb text-center'>";
-						//echo "<a class='thumbnail' href='#'>";
-						echo "<video class='thumbnail' width='200' height='200' src='$dir/$file' controls>";
+						echo "<video class='thumbnail' width='250' height='200' src='$dir/$file' controls='controls' controls='fullscreen'>";
 						echo "your browser does not support the video tag";
 						echo "</video>";
-						//echo "</a>";
-						echo "<br>Filename: $file";
+						echo "Filename: $file<br>";
 						
 						echo "<a class='btn btn-primary' href='$dir/$file'>Download</a>";
 						echo "</div>";
@@ -120,7 +119,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; SMK Tarbiyatul Islam Kawunganten 2016</p>
                 </div>
             </div>
         </footer>
